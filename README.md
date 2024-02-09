@@ -14,3 +14,54 @@ shot-scraper javascript https://www.rally-maps.com/Rallye-Festival-Hoznayo-2022 
 ```
 
 Having a quick peek in geojson viewer, and it seems to work (I just need to scrape some of the other data too, such as marker labels etc.)
+
+## scripts
+
+```bash
+shot-scraper javascript https://leafletjs.com/ -i script0.js > res0.geojson
+
+# creates geojson with:
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.159,
+                    51.504
+                ]
+            }
+        }
+    ]
+}
+```
+
+## questions
+
+why not working?
+- try to make a screenshot -> maybe need cookies acceptance
+
+why does `map` not appear in the list of vars? 
+- https://stackoverflow.com/questions/2934787/view-list-of-all-javascript-variables-in-google-chrome-console
+
+```
+for (let variable in window) {
+    if (window.hasOwnProperty(variable)) {
+        // Check if the variable is not null or undefined
+        if (window[variable] !== null && window[variable] !== undefined) {
+            // Check if the variable has a getCenter() method
+            if (typeof window[variable].getCenter === 'function') {
+                console.log(variable + ' has a getCenter() method');
+            } else {
+                console.log('no');
+            }
+        } else {
+            console.log('problem');
+        }
+    }
+}
+```
+
